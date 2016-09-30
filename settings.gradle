@@ -11,6 +11,6 @@ include "money-transfer-service-common"
 include "test-util"
 include "util-service"
 // include "api-gateway-service"
-include "end-to-end-tests"
+// include "end-to-end-tests"
 
 rootProject.name = "banking-example"
