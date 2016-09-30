@@ -1,6 +1,5 @@
 package net.chrisrichardson.bankingexample.accountservice.web;
 
-import com.netflix.hystrix.exception.HystrixRuntimeException;
 import io.eventuate.EntityNotFoundException;
 import net.chrisrichardson.bankingexample.accountservice.backend.AccountService;
 import net.chrisrichardson.bankingexample.accountservice.backend.CustomerNotFoundException;
@@ -55,15 +54,15 @@ public class AccountController {
   public void badCustomerId() {
   }
 
-  @ExceptionHandler(HystrixRuntimeException.class)
-  public ResponseEntity<String> badCustomerIdNested(HystrixRuntimeException e) {
-    if (e.getCause() instanceof CustomerNotFoundException) {
-      return new ResponseEntity<>("Invalid customerId", HttpStatus.BAD_REQUEST);
-    } else {
-      logger.error("Hystrix related exception", e);
-      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
-  }
+//  @ExceptionHandler(HystrixRuntimeException.class)
+//  public ResponseEntity<String> badCustomerIdNested(HystrixRuntimeException e) {
+//    if (e.getCause() instanceof CustomerNotFoundException) {
+//      return new ResponseEntity<>("Invalid customerId", HttpStatus.BAD_REQUEST);
+//    } else {
+//      logger.error("Hystrix related exception", e);
+//      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
+//
+//  }
 
 }
